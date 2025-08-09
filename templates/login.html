@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Authentication - Login & Print</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Employee Print Authentication</h2>
+    <form action="{{ url_for('print_document') }}" method="post" enctype="multipart/form-data">
+        <label>Employee ID:</label><br>
+        <input type="text" name="emp_id" required><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <label>Upload File to Print (PDF, DOCX, PPTX):</label><br>
+        <input type="file" name="pdf_file" accept=".pdf,.docx,.pptx" required><br><br>
+
+        <input type="submit" value="Print Document">
+    </form>
+    {% if error %}
+    <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <br><a href="{{ url_for('view_history') }}">View Print History</a>
+</body>
+</html>

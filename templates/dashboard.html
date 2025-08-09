@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Print Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Print Status</h2>
+    {% if success %}
+        <p class="success">{{ success }}</p>
+        <p><b>Document:</b> {{ doc_name }}</p>
+        <p><b>Pages/Count:</b> {{ pages }}</p>
+    {% elif error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+    <br><a href="{{ url_for('login_form') }}">Back to Print Page</a><br>
+    <a href="{{ url_for('view_history') }}">View Print History</a>
+</body>
+</html>
